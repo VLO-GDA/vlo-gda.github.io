@@ -1,0 +1,29 @@
+{
+  "name": "Vapp",
+  "short_name": "Vapp",
+  "icons": [
+    {
+      "src": "/static/vlo-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/vlo-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/vlo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "lang": "pl-PL",
+  "theme_color": "aliceblue",
+  "developer": {
+    "name": "Maciej Mionskowski",
+    "url": "https://maciekmm.net"
+  }
+}
