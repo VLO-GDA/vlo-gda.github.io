@@ -1,5 +1,17 @@
-var CACHE = 'v1';
+var CACHE = 'v2';
 var API_HOST = 'vapi.maciekmm.net';
+
+this.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(keyList) {
+      return Promise.all(keyList.map(function(key) {
+        if (key !== CACHE) {
+          return caches.delete(key);
+        }
+      }));
+    })
+  );
+});
 
 this.addEventListener('fetch', function(event) {
   var url = new URL(event.request.url);
@@ -11,10 +23,10 @@ this.addEventListener('fetch', function(event) {
   } else {
     event.respondWith(
       caches.match(event.request).then(function(response) {
-		if(response) {
-        	return response;
-		}
-		return fetch(event.request).then(function(response) {
+        if (response) {
+          return response;
+        }
+        return fetch(event.request).then(function(response) {
           return caches.open(CACHE).then(function(cache) {
             cache.put(event.request, response.clone());
             return response;
