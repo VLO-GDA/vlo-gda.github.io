@@ -1,5 +1,17 @@
-var CACHE = 'v2';
+var CACHE = 'v3';
 var API_HOST = 'vapi.maciekmm.net';
+
+this.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE).then(function(cache) {
+      return cache.addAll([
+        '/',
+        '/index.html',
+        '/js/bundle.js'
+      ]);
+    })
+  );
+});
 
 this.addEventListener('activate', function(event) {
   event.waitUntil(
