@@ -1,4 +1,4 @@
-var CACHE = 'v3';
+var CACHE = 'v4';
 var API_HOST = 'vapi.maciekmm.net';
 
 this.addEventListener('install', function(event) {
